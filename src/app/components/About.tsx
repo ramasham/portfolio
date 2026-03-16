@@ -61,7 +61,7 @@ export function About() {
             <p>
               I have experience building backend services and APIs, working with HTTP,
               networking protocols, and SQL databases, and developing software using C,
-              C++, and Python. Much of my learning has come from building systems from
+              C++, C#, and Python. Much of my learning has come from building systems from
               scratch and working directly with Linux environments, networking concepts,
               and low-level programming.
             </p>

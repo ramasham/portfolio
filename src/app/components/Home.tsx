@@ -346,7 +346,7 @@ export function Home() {
                   </a>
                   <a
                     href={cvUrl}
-                    download="Rama-Alshamasneh-CV.pdf"
+                    download="Rama-Alshamasneh-Cv.pdf"
                     className="inline-flex h-14 items-center gap-2 rounded-2xl border border-[#EC4899]/20 bg-[#120f1f]/80 px-5 text-sm font-semibold text-[#F5D0FE] transition-all duration-300 hover:translate-y-[-1px] hover:border-[#EC4899]/40 hover:bg-[linear-gradient(135deg,rgba(139,92,246,0.16),rgba(236,72,153,0.14))] hover:text-white"
                   >
                     <Download className="h-5 w-5" />
