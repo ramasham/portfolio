@@ -68,19 +68,19 @@ function formatDate(dateString: string) {
 
 export function GitHub() {
   return (
-    <div className="min-h-screen px-4 py-20 sm:px-6 lg:px-8">
+    <div className="min-h-screen px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12 text-center sm:mb-16"
         >
-          <h1 className="mb-4 text-5xl font-bold text-[#E5E7EB] md:text-6xl">
+          <h1 className="mb-4 text-4xl font-bold text-[#E5E7EB] sm:text-5xl md:text-6xl">
             GitHub Activity
           </h1>
           <div className="mx-auto mb-6 h-1 w-20 bg-[#8B5CF6]" />
-          <p className="mx-auto max-w-3xl text-xl text-[#9CA3AF]">
+          <p className="mx-auto max-w-3xl text-base text-[#9CA3AF] sm:text-lg md:text-xl">
             A current snapshot of my public repositories, dominant languages, and latest commits.
           </p>
         </motion.div>
@@ -89,7 +89,7 @@ export function GitHub() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-10 grid grid-cols-2 gap-6 lg:grid-cols-4"
+          className="mb-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4"
         >
           {stats.map((stat, index) => {
             const Icon = stat.icon;
@@ -99,12 +99,12 @@ export function GitHub() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 + index * 0.08 }}
-                className="rounded-2xl border border-white/10 bg-[#141427] p-6 text-center transition-colors duration-300 hover:border-[#8B5CF6]/35 hover:bg-[#141427]/85"
+                className="rounded-2xl border border-white/10 bg-[#141427] p-5 text-center transition-colors duration-300 hover:border-[#8B5CF6]/35 hover:bg-[#141427]/85 sm:p-6"
               >
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#8B5CF6]/15">
-                  <Icon className="h-6 w-6 text-[#A78BFA]" />
+                <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-[#8B5CF6]/15 sm:h-12 sm:w-12">
+                  <Icon className="h-5 w-5 text-[#A78BFA] sm:h-6 sm:w-6" />
                 </div>
-                <div className="mb-1 text-3xl font-bold text-[#E5E7EB]">{stat.value}</div>
+                <div className="mb-1 text-2xl font-bold text-[#E5E7EB] sm:text-3xl">{stat.value}</div>
                 <div className="text-sm text-[#9CA3AF]">{stat.label}</div>
               </motion.div>
             );
@@ -116,9 +116,9 @@ export function GitHub() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-[24px] border border-white/10 bg-[#141427] p-8"
+            className="rounded-[24px] border border-white/10 bg-[#141427] p-6 sm:p-8"
           >
-            <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold text-[#E5E7EB]">
+            <h2 className="mb-5 flex flex-wrap items-center gap-3 text-xl font-bold text-[#E5E7EB] sm:mb-6 sm:text-2xl">
               <Code2 className="h-6 w-6 text-[#A78BFA]" />
               Top Languages
             </h2>
@@ -153,9 +153,9 @@ export function GitHub() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.28 }}
-            className="rounded-[24px] border border-white/10 bg-[#141427] p-8"
+            className="rounded-[24px] border border-white/10 bg-[#141427] p-6 sm:p-8"
           >
-            <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold text-[#E5E7EB]">
+            <h2 className="mb-5 flex flex-wrap items-center gap-3 text-xl font-bold text-[#E5E7EB] sm:mb-6 sm:text-2xl">
               <GitCommit className="h-6 w-6 text-[#A78BFA]" />
               Recent Activity
             </h2>
@@ -172,14 +172,14 @@ export function GitHub() {
                   transition={{ delay: 0.35 + index * 0.08 }}
                   className="block rounded-xl border border-white/6 bg-white/[0.03] p-4 transition-colors duration-300 hover:border-[#8B5CF6]/25 hover:bg-white/[0.05]"
                 >
-                  <div className="mb-2 flex items-center justify-between gap-4">
+                  <div className="mb-2 flex flex-wrap items-start justify-between gap-2 sm:gap-4">
                     <span className="font-mono text-sm text-[#A78BFA]">{activity.repo}</span>
                     <span className="flex items-center gap-2 text-xs text-[#6B7280]">
                       <Clock3 className="h-3.5 w-3.5" />
                       {formatDate(activity.date)}
                     </span>
                   </div>
-                  <p className="pr-6 leading-relaxed text-[#9CA3AF]">{activity.message}</p>
+                  <p className="leading-relaxed text-[#9CA3AF] sm:pr-6">{activity.message}</p>
                 </motion.a>
               ))}
             </div>
@@ -190,13 +190,13 @@ export function GitHub() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="mt-12 text-center"
+          className="mt-10 text-center sm:mt-12"
         >
           <a
             href="https://github.com/ramasham"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 rounded-xl border border-[#8B5CF6]/20 bg-[#8B5CF6]/10 px-6 py-3 text-base font-semibold text-[#E5E7EB] transition-colors hover:bg-[#8B5CF6]/15"
+            className="inline-flex w-full items-center justify-center gap-3 rounded-xl border border-[#8B5CF6]/20 bg-[#8B5CF6]/10 px-6 py-3 text-base font-semibold text-[#E5E7EB] transition-colors hover:bg-[#8B5CF6]/15 sm:w-auto"
           >
             <Github className="h-5 w-5 text-[#A78BFA]" />
             View Full GitHub Profile

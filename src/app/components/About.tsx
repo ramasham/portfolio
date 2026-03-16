@@ -26,20 +26,20 @@ export function About() {
   ];
 
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="mx-auto max-w-6xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12 text-center sm:mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-[#E5E7EB] mb-4">
+          <h1 className="mb-4 text-4xl font-bold text-[#E5E7EB] sm:text-5xl md:text-6xl">
             About Me
           </h1>
           <div className="mx-auto mb-6 h-1 w-20 bg-[linear-gradient(90deg,#EC4899,#8B5CF6)]" />
-          <p className="text-xl text-[#9CA3AF] max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-base text-[#9CA3AF] sm:text-lg md:text-xl">
             Computer Science student focused on backend development and systems programming
           </p>
         </motion.div>
@@ -49,9 +49,9 @@ export function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mx-auto mb-16 max-w-4xl text-center"
+          className="mx-auto mb-12 max-w-4xl text-center sm:mb-16"
         >
-          <div className="space-y-4 text-[#9CA3AF] leading-relaxed text-lg">
+          <div className="space-y-4 text-base leading-relaxed text-[#9CA3AF] sm:text-lg">
             <p>
               I&apos;m Rama Alshamasneh, a Computer Science student and graduate of the 42
               Amman software engineering program. My work centers on backend development
@@ -79,7 +79,7 @@ export function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4"
         >
           {highlights.map((highlight, index) => {
             const Icon = highlight.icon;
@@ -89,12 +89,12 @@ export function About() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
-                className="group rounded-xl border border-white/10 bg-[#141427] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[#EC4899]/30 hover:bg-[#141427]/80"
+                className="group rounded-xl border border-white/10 bg-[#141427] p-5 backdrop-blur-sm transition-all duration-300 hover:border-[#EC4899]/30 hover:bg-[#141427]/80 sm:p-6"
               >
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[linear-gradient(135deg,rgba(139,92,246,0.18),rgba(236,72,153,0.16))] transition-transform group-hover:scale-110">
                   <Icon className="w-6 h-6 text-[#F5D0FE]" />
                 </div>
-                <h3 className="text-lg font-semibold text-[#E5E7EB] mb-2">
+                <h3 className="mb-2 text-base font-semibold text-[#E5E7EB] sm:text-lg">
                   {highlight.title}
                 </h3>
                 <p className="text-sm text-[#9CA3AF]">{highlight.description}</p>

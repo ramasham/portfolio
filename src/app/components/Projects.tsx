@@ -187,7 +187,7 @@ export function Projects() {
   }, [fallbackRepositories]);
 
   return (
-    <div className="relative min-h-screen overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
+    <div className="relative min-h-screen overflow-hidden px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.05)_1px,transparent_1px)] bg-[size:62px_62px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(139,92,246,0.14),transparent_30%),radial-gradient(circle_at_82%_20%,rgba(236,72,153,0.10),transparent_22%),linear-gradient(180deg,rgba(15,15,26,0.2),rgba(15,15,26,0.92))]" />
@@ -198,41 +198,41 @@ export function Projects() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-12 text-center"
+          className="mb-10 text-center sm:mb-12"
         >
-          <h1 className="text-4xl font-bold text-[#E5E7EB] md:text-5xl">Projects</h1>
+          <h1 className="text-4xl font-bold text-[#E5E7EB] sm:text-5xl">Projects</h1>
           <div className="mx-auto mt-4 h-1 w-20 bg-[linear-gradient(90deg,#EC4899,#8B5CF6)]" />
         </motion.div>
 
-        <div className="grid gap-8 xl:grid-cols-[0.80fr_1.20fr]">
+        <div className="grid gap-6 lg:gap-8 xl:grid-cols-[0.80fr_1.20fr]">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="self-start overflow-hidden rounded-[28px] border border-white/10 bg-[#161622]/90 shadow-[0_18px_50px_rgba(0,0,0,0.35)] backdrop-blur-sm"
           >
-            <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.03] px-6 py-5">
+            <div className="flex items-center justify-between gap-3 border-b border-white/10 bg-white/[0.03] px-4 py-4 sm:px-6 sm:py-5">
               <div className="flex items-center gap-3 text-[#E5E7EB]">
                 <FileCode2 className="h-5 w-5 text-[#A78BFA]" />
-                <span className="text-xl font-semibold">Repositories</span>
+                <span className="text-lg font-semibold sm:text-xl">Repositories</span>
               </div>
               <span className="rounded-full bg-white/5 px-3 py-1 text-sm font-medium text-[#9CA3AF]">
                 {repositories.length}
               </span>
             </div>
 
-            <div className="h-[22rem] overflow-y-auto pr-2 lg:h-[26rem] xl:h-[31rem] [scrollbar-color:rgba(255,255,255,0.78)_rgba(255,255,255,0.08)] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-2.5 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-white/[0.08] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-[2px] [&::-webkit-scrollbar-thumb]:border-solid [&::-webkit-scrollbar-thumb]:border-transparent [&::-webkit-scrollbar-thumb]:bg-white/75">
+            <div className="h-[19rem] overflow-y-auto pr-1 sm:h-[22rem] sm:pr-2 lg:h-[26rem] xl:h-[31rem] [scrollbar-color:rgba(255,255,255,0.78)_rgba(255,255,255,0.08)] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-2.5 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-white/[0.08] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-[2px] [&::-webkit-scrollbar-thumb]:border-solid [&::-webkit-scrollbar-thumb]:border-transparent [&::-webkit-scrollbar-thumb]:bg-white/75">
               {repositories.map((project, index) => (
                 <a
                   key={project.name}
                   href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block border-b border-white/6 px-6 py-5 transition-colors duration-300 last:border-b-0 hover:bg-white/[0.03]"
+                  className="group block border-b border-white/6 px-4 py-4 transition-colors duration-300 last:border-b-0 hover:bg-white/[0.03] sm:px-6 sm:py-5"
                 >
-                  <div className="mb-2 flex items-start justify-between gap-4">
+                  <div className="mb-2 flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
                     <div>
-                      <h3 className="text-2xl font-semibold text-[#E5E7EB] transition-colors group-hover:text-[#C4B5FD]">
+                      <h3 className="break-words text-xl font-semibold text-[#E5E7EB] transition-colors group-hover:text-[#C4B5FD] sm:text-2xl">
                         {project.name}
                       </h3>
                       <p className="mt-1 text-sm text-[#6B7280]">{project.owner}</p>
@@ -240,9 +240,9 @@ export function Projects() {
                         Updated {formatProjectDate(project.updatedAt)}
                       </p>
                     </div>
-                      <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-[#F0ABFC]">
-                        {project.visibilityLabel}
-                      </span>
+                    <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-[#F0ABFC]">
+                      {project.visibilityLabel}
+                    </span>
                   </div>
 
                   <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
@@ -261,9 +261,9 @@ export function Projects() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="mb-5"
+              className="mb-4 sm:mb-5"
             >
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#6B7280]">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#6B7280] sm:text-sm sm:tracking-[0.25em]">
                 Pinned Projects
               </p>
             </motion.div>
@@ -275,15 +275,15 @@ export function Projects() {
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 + index * 0.08 }}
-                  className="flex h-full flex-col rounded-[24px] border border-white/10 bg-[#161622]/92 p-6 shadow-[0_18px_50px_rgba(0,0,0,0.28)] transition-colors duration-300 hover:border-[#8B5CF6]/30"
+                  className="flex h-full flex-col rounded-[24px] border border-white/10 bg-[#161622]/92 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.28)] transition-colors duration-300 hover:border-[#8B5CF6]/30 sm:p-6"
                 >
-                  <div className="mb-5 flex items-start justify-between gap-4">
+                  <div className="mb-5 flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
                     <div className="flex items-start gap-3">
                       <div className="mt-1 rounded-lg border border-white/10 bg-white/[0.03] p-2">
                         <FileCode2 className="h-4 w-4 text-[#A78BFA]" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-semibold text-[#E5E7EB]">
+                        <h3 className="text-xl font-semibold text-[#E5E7EB] sm:text-2xl">
                           {project.name}
                         </h3>
                         <p className="mt-1 flex items-center gap-2 text-sm text-[#6B7280]">
@@ -313,19 +313,19 @@ export function Projects() {
                     ))}
                   </div>
 
-                  <div className="mt-auto flex items-center justify-between gap-4 border-t border-white/6 pt-5">
-                    <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
+                  <div className="mt-auto flex flex-col items-stretch gap-4 border-t border-white/6 pt-5 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex items-center justify-center gap-3 text-sm text-[#9CA3AF] sm:justify-start">
                       <span className="inline-flex h-3 w-3 rounded-full bg-[#8B5CF6]" />
                       <span>{project.primaryLanguage}</span>
                     </div>
 
-                    <div className="flex flex-wrap items-center justify-end gap-3">
+                    <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-end">
                       {project.demoUrl ? (
                         <a
                           href={project.demoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-xl border border-[#EC4899]/18 bg-[linear-gradient(135deg,rgba(139,92,246,0.12),rgba(236,72,153,0.10))] px-4 py-2 text-sm font-medium text-[#F5D0FE] transition-colors duration-300 hover:border-[#EC4899]/38 hover:text-white"
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-[#EC4899]/18 bg-[linear-gradient(135deg,rgba(139,92,246,0.12),rgba(236,72,153,0.10))] px-4 py-2 text-sm font-medium text-[#F5D0FE] transition-colors duration-300 hover:border-[#EC4899]/38 hover:text-white sm:w-auto"
                         >
                           {project.demoButtonLabel ?? "Demo"}
                           <Globe className="h-4 w-4" />
@@ -336,7 +336,7 @@ export function Projects() {
                         href={project.repoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-[#E5E7EB] transition-colors duration-300 hover:border-[#8B5CF6]/30 hover:bg-[#8B5CF6]/10"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-[#E5E7EB] transition-colors duration-300 hover:border-[#8B5CF6]/30 hover:bg-[#8B5CF6]/10 sm:w-auto"
                       >
                         {project.repoButtonLabel}
                         <ArrowUpRight className="h-4 w-4" />
@@ -353,13 +353,13 @@ export function Projects() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.55 }}
-          className="mt-12 text-center"
+          className="mt-10 text-center sm:mt-12"
         >
           <a
             href={githubProfileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 text-lg font-semibold text-[#E5E7EB] transition-colors hover:text-[#C4B5FD]"
+            className="inline-flex items-center gap-3 text-base font-semibold text-[#E5E7EB] transition-colors hover:text-[#C4B5FD] sm:text-lg"
           >
             <Github className="h-5 w-5 text-[#8B5CF6]" />
             View all repositories

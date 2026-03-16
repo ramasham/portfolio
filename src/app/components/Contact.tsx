@@ -103,7 +103,7 @@ export function Contact() {
   ];
 
   return (
-    <div className="px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+    <div className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -111,11 +111,11 @@ export function Contact() {
           transition={{ duration: 0.6 }}
           className="mb-8 text-center"
         >
-          <h1 className="mb-3 text-4xl font-bold text-[#E5E7EB] md:text-5xl">
+          <h1 className="mb-3 text-4xl font-bold text-[#E5E7EB] sm:text-5xl">
             Get In Touch
           </h1>
           <div className="mx-auto mb-5 h-1 w-16 bg-[linear-gradient(90deg,#EC4899,#8B5CF6)]" />
-          <p className="mx-auto max-w-2xl text-lg text-[#9CA3AF]">
+          <p className="mx-auto max-w-2xl text-base text-[#9CA3AF] sm:text-lg">
             Let's discuss your next project or collaboration opportunity.
           </p>
         </motion.div>
@@ -124,9 +124,9 @@ export function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="mx-auto max-w-xl rounded-2xl border border-white/10 bg-[#141427] p-6 backdrop-blur-sm md:p-8"
+          className="mx-auto max-w-xl rounded-2xl border border-white/10 bg-[#141427] p-5 backdrop-blur-sm sm:p-6 md:p-8"
         >
-          <h2 className="mb-6 text-center text-2xl font-bold text-[#E5E7EB] md:text-3xl">
+          <h2 className="mb-6 text-center text-2xl font-bold text-[#E5E7EB] sm:text-3xl">
             Send a Message
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -238,7 +238,7 @@ export function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-4"
+          className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
         >
           {contactMethods.map((method, index) => {
             const Icon = method.icon;
@@ -251,7 +251,7 @@ export function Contact() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.45 + index * 0.08 }}
-                className="group inline-flex items-center gap-3 rounded-full border border-white/10 bg-[#141427]/80 px-4 py-3 transition-all duration-300 hover:border-[#EC4899]/35 hover:bg-[linear-gradient(135deg,rgba(139,92,246,0.10),rgba(236,72,153,0.08))]"
+                className="group inline-flex w-full items-center justify-center gap-3 rounded-full border border-white/10 bg-[#141427]/80 px-4 py-3 transition-all duration-300 hover:border-[#EC4899]/35 hover:bg-[linear-gradient(135deg,rgba(139,92,246,0.10),rgba(236,72,153,0.08))] sm:w-auto"
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(139,92,246,0.16),rgba(236,72,153,0.14))]">
                   <Icon className="h-5 w-5 text-[#F5D0FE]" />
@@ -268,7 +268,7 @@ export function Contact() {
           transition={{ duration: 0.6, delay: 0.55 }}
           className="mt-6 flex justify-center"
         >
-          <div className="inline-flex items-center gap-2 rounded-lg border border-[#EC4899]/24 bg-[linear-gradient(135deg,rgba(139,92,246,0.10),rgba(236,72,153,0.08))] px-5 py-3">
+          <div className="inline-flex items-center gap-2 rounded-lg border border-[#EC4899]/24 bg-[linear-gradient(135deg,rgba(139,92,246,0.10),rgba(236,72,153,0.08))] px-4 py-3 text-center sm:px-5">
             <div className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
             <span className="text-sm text-[#9CA3AF]">Available opportunities</span>
           </div>

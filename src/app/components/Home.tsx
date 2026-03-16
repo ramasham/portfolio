@@ -53,7 +53,7 @@ function ScrollSection({ id, isActive, className, children }: ScrollSectionProps
 }
 
 export function Home() {
-  const cvUrl = "/MyCv.pdf";
+  const cvUrl = "/Rama-Alshamasneh-Cv.pdf";
   const githubUrl = "https://github.com/ramasham";
   const gmailComposeUrl =
     "https://mail.google.com/mail/?view=cm&fs=1&to=alshamasnehrama%40gmail.com";
@@ -225,7 +225,7 @@ export function Home() {
       <ScrollSection
         id="home"
         isActive={activeSection === "home"}
-        className="relative min-h-screen overflow-hidden px-4 pb-8 pt-8 sm:px-6 lg:px-8"
+        className="relative min-h-screen overflow-hidden px-4 pb-10 pt-6 sm:px-6 sm:pb-8 sm:pt-8 lg:px-8"
       >
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(139,92,246,0.18),transparent_28%),radial-gradient(circle_at_82%_18%,rgba(236,72,153,0.14),transparent_24%),radial-gradient(circle_at_76%_72%,rgba(167,139,250,0.12),transparent_26%),linear-gradient(180deg,#120f1f_0%,#0f0f1a_52%,#090910_100%)]" />
@@ -235,9 +235,9 @@ export function Home() {
           <div className="absolute bottom-0 right-[-8%] h-96 w-96 rounded-full bg-[#A78BFA]/10 blur-3xl" />
         </div>
 
-        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl items-center">
-          <div className="w-full -translate-y-8 px-6 py-4 sm:px-8 lg:-translate-y-10 lg:px-12 lg:py-6">
-            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-3rem)] max-w-7xl items-center sm:min-h-[calc(100vh-4rem)]">
+          <div className="w-full px-1 py-4 sm:px-8 lg:-translate-y-10 lg:px-12 lg:py-6">
+            <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
               <div className="relative">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -245,18 +245,18 @@ export function Home() {
                   transition={{ delay: 0.15, duration: 0.8 }}
                   className="mb-8"
                 >
-                  <div className="mb-5 flex items-center gap-4">
-                    <span className="font-mono text-5xl font-bold tracking-[-0.18em] text-[#F0ABFC]">
+                  <div className="mb-4 flex items-center gap-3 sm:mb-5 sm:gap-4">
+                    <span className="font-mono text-4xl font-bold tracking-[-0.18em] text-[#F0ABFC] sm:text-5xl">
                       &gt;_
                     </span>
                     <div>
-                      <p className="text-sm uppercase tracking-[0.3em] text-[#6B7280]">
+                      <p className="text-xs uppercase tracking-[0.26em] text-[#6B7280] sm:text-sm sm:tracking-[0.3em]">
                         Backend Engineer
                       </p>
                     </div>
                   </div>
 
-                  <h1 className="max-w-3xl text-5xl font-bold leading-[0.95] text-white sm:text-6xl lg:text-7xl">
+                  <h1 className="max-w-3xl text-4xl font-bold leading-[0.95] text-white sm:text-6xl lg:text-7xl">
                     Building Software{" "}
                     <span className="bg-gradient-to-r from-[#F0ABFC] via-[#A78BFA] to-[#8B5CF6] bg-clip-text text-transparent">
                       From Strong
@@ -272,7 +272,7 @@ export function Home() {
                   transition={{ delay: 0.3, duration: 0.8 }}
                   className="mb-8 max-w-2xl space-y-4"
                 >
-                  <div className="text-xl font-mono text-[#F5D0FE] sm:text-2xl">
+                  <div className="text-lg font-mono text-[#F5D0FE] sm:text-2xl">
                     <TypingEffect
                       texts={[
                         "Backend Engineer",
@@ -282,7 +282,7 @@ export function Home() {
                       ]}
                     />
                   </div>
-                  <p className="text-lg leading-relaxed text-[#9CA3AF] sm:text-xl">
+                  <p className="text-base leading-relaxed text-[#9CA3AF] sm:text-xl">
                     I'm <span className="font-semibold text-white">Rama Alshamasneh</span>, a
                     backend engineer focused on performant APIs, Linux systems, and clean,
                     production-ready architecture.
@@ -297,14 +297,14 @@ export function Home() {
                 >
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-[#8B5CF6] via-[#A855F7] to-[#EC4899] px-7 py-4 text-base font-semibold text-white shadow-[0_12px_35px_rgba(236,72,153,0.28)] transition-all duration-300 hover:translate-y-[-1px] hover:shadow-[0_16px_45px_rgba(236,72,153,0.38)]"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#8B5CF6] via-[#A855F7] to-[#EC4899] px-7 py-4 text-base font-semibold text-white shadow-[0_12px_35px_rgba(236,72,153,0.28)] transition-all duration-300 hover:translate-y-[-1px] hover:shadow-[0_16px_45px_rgba(236,72,153,0.38)] sm:w-auto"
                   >
                     Let's Collaborate
                     <ArrowRight className="h-5 w-5" />
                   </a>
                   <a
                     href="#projects"
-                    className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-7 py-4 text-base font-semibold text-[#E5E7EB] transition-colors duration-300 hover:border-[#EC4899]/30 hover:bg-[linear-gradient(135deg,rgba(139,92,246,0.1),rgba(236,72,153,0.08))]"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-7 py-4 text-base font-semibold text-[#E5E7EB] transition-colors duration-300 hover:border-[#EC4899]/30 hover:bg-[linear-gradient(135deg,rgba(139,92,246,0.1),rgba(236,72,153,0.08))] sm:w-auto"
                   >
                     View Projects
                     <ExternalLink className="h-5 w-5" />
@@ -315,7 +315,7 @@ export function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, duration: 0.8 }}
-                  className="flex flex-wrap items-center gap-3"
+                  className="flex flex-wrap items-center gap-2 sm:gap-3"
                 >
                   <a
                     href={githubUrl}
@@ -347,7 +347,7 @@ export function Home() {
                   <a
                     href={cvUrl}
                     download="Rama-Alshamasneh-Cv.pdf"
-                    className="inline-flex h-14 items-center gap-2 rounded-2xl border border-[#EC4899]/20 bg-[#120f1f]/80 px-5 text-sm font-semibold text-[#F5D0FE] transition-all duration-300 hover:translate-y-[-1px] hover:border-[#EC4899]/40 hover:bg-[linear-gradient(135deg,rgba(139,92,246,0.16),rgba(236,72,153,0.14))] hover:text-white"
+                    className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-2xl border border-[#EC4899]/20 bg-[#120f1f]/80 px-5 text-sm font-semibold text-[#F5D0FE] transition-all duration-300 hover:translate-y-[-1px] hover:border-[#EC4899]/40 hover:bg-[linear-gradient(135deg,rgba(139,92,246,0.16),rgba(236,72,153,0.14))] hover:text-white sm:w-auto"
                   >
                     <Download className="h-5 w-5" />
                     <span>Download My CV</span>
@@ -356,14 +356,14 @@ export function Home() {
               </div>
 
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.35, duration: 0.85 }}
-                className="relative"
-              >
-                <div className="absolute -inset-6 rounded-[32px] bg-[radial-gradient(circle,rgba(236,72,153,0.18),transparent_55%),radial-gradient(circle_at_35%_40%,rgba(139,92,246,0.2),transparent_64%)] blur-2xl" />
-                <div className="relative -translate-y-2 mb-4 flex justify-center">
-                  <div className="inline-flex items-center gap-3 rounded-full border border-[#EC4899]/20 bg-[linear-gradient(135deg,rgba(139,92,246,0.1),rgba(236,72,153,0.1))] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-[#F5D0FE]">
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.35, duration: 0.85 }}
+                  className="relative mx-auto w-full max-w-xl lg:max-w-none"
+                >
+                  <div className="absolute -inset-6 rounded-[32px] bg-[radial-gradient(circle,rgba(236,72,153,0.18),transparent_55%),radial-gradient(circle_at_35%_40%,rgba(139,92,246,0.2),transparent_64%)] blur-2xl" />
+                <div className="relative mb-4 flex justify-center lg:-translate-y-2">
+                  <div className="inline-flex items-center gap-3 rounded-full border border-[#EC4899]/20 bg-[linear-gradient(135deg,rgba(139,92,246,0.1),rgba(236,72,153,0.1))] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#F5D0FE] sm:text-[11px] sm:tracking-[0.32em]">
                     <span className="h-2 w-2 rounded-full bg-[#F9A8D4]" />
                     Welcome to my universe
                   </div>
@@ -381,13 +381,15 @@ export function Home() {
                     </div>
                   </div>
 
-                  <div className="space-y-3 px-5 py-8 font-mono text-[15px] leading-8 sm:px-8 sm:text-lg">
+                  <div className="overflow-x-auto">
+                    <div className="min-w-[320px] space-y-3 px-4 py-6 font-mono text-[13px] leading-6 sm:px-8 sm:py-8 sm:text-lg sm:leading-8">
                     {codePreview.map((row) => (
-                      <div key={row.line} className="grid grid-cols-[44px_1fr] gap-4">
+                      <div key={row.line} className="grid grid-cols-[32px_1fr] gap-3 sm:grid-cols-[44px_1fr] sm:gap-4">
                         <span className="text-[#4B5563]">{row.line}</span>
                         <span className="text-[#E5E7EB]">{row.content}</span>
                       </div>
                     ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>
