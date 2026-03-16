@@ -4,6 +4,7 @@ import {
   Braces,
   Code2,
   Cpu,
+  Download,
   ExternalLink,
   FolderOpen,
   Github,
@@ -52,6 +53,7 @@ function ScrollSection({ id, isActive, className, children }: ScrollSectionProps
 }
 
 export function Home() {
+  const cvUrl = "/MyCv.pdf";
   const githubUrl = "https://github.com/ramasham";
   const gmailComposeUrl =
     "https://mail.google.com/mail/?view=cm&fs=1&to=alshamasnehrama%40gmail.com";
@@ -313,7 +315,7 @@ export function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, duration: 0.8 }}
-                  className="flex flex-wrap gap-3"
+                  className="flex flex-wrap items-center gap-3"
                 >
                   <a
                     href={githubUrl}
@@ -341,6 +343,14 @@ export function Home() {
                     aria-label="Email"
                   >
                     <Mail className="h-6 w-6" />
+                  </a>
+                  <a
+                    href={cvUrl}
+                    download="Rama-Alshamasneh-CV.pdf"
+                    className="inline-flex h-14 items-center gap-2 rounded-2xl border border-[#EC4899]/20 bg-[#120f1f]/80 px-5 text-sm font-semibold text-[#F5D0FE] transition-all duration-300 hover:translate-y-[-1px] hover:border-[#EC4899]/40 hover:bg-[linear-gradient(135deg,rgba(139,92,246,0.16),rgba(236,72,153,0.14))] hover:text-white"
+                  >
+                    <Download className="h-5 w-5" />
+                    <span>Download My CV</span>
                   </a>
                 </motion.div>
               </div>

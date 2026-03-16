@@ -5,6 +5,7 @@ import {
   Clock3,
   FileCode2,
   FolderOpen,
+  Globe,
   Github,
 } from "lucide-react";
 
@@ -12,12 +13,14 @@ type Project = {
   name: string;
   owner: string;
   repoUrl: string;
+  demoUrl?: string;
   description: string;
   updatedAt: string;
   primaryLanguage: string;
   tags: string[];
   visibilityLabel: string;
-  buttonLabel: string;
+  repoButtonLabel: string;
+  demoButtonLabel?: string;
 };
 
 type RepositoryListItem = {
@@ -48,13 +51,15 @@ const projects: Project[] = [
     name: "Andary",
     owner: "ramasham",
     repoUrl: "https://github.com/ramasham/Andary",
+    demoUrl: "",
     description:
       "A collaborative application forked from Tawjihi-Gaming/Andary, focused on full-stack product work and recent realtime transport updates.",
     updatedAt: "2026-03-07T21:15:44Z",
     primaryLanguage: "JavaScript",
     tags: ["JavaScript", "Team Project", "Realtime", "Fork"],
     visibilityLabel: "Fork",
-    buttonLabel: "Repo",
+    repoButtonLabel: "Repo",
+    demoButtonLabel: "Live Demo",
   },
   {
     name: "42_Inception",
@@ -66,19 +71,21 @@ const projects: Project[] = [
     primaryLanguage: "Docker",
     tags: ["Docker", "Infrastructure", "Nginx", "WordPress", "MariaDB"],
     visibilityLabel: "Public",
-    buttonLabel: "Repo",
+    repoButtonLabel: "Repo",
   },
   {
     name: "42_webserve",
     owner: "ramasham",
     repoUrl: "https://github.com/ramasham/42_webserve",
+    demoUrl: "",
     description:
       "A web server project built around low-level HTTP handling, request parsing, configuration-driven routing, and CGI-oriented backend behavior.",
     updatedAt: "2026-03-11T06:44:47Z",
     primaryLanguage: "C++",
     tags: ["C++", "HTTP", "CGI", "HTML", "CSS"],
     visibilityLabel: "Public",
-    buttonLabel: "Repo",
+    repoButtonLabel: "Repo",
+    demoButtonLabel: "Live Demo",
   },
   {
     name: "minishell",
@@ -90,19 +97,21 @@ const projects: Project[] = [
     primaryLanguage: "C",
     tags: ["C", "Shell", "Parsing", "Pipes", "Redirections"],
     visibilityLabel: "Public",
-    buttonLabel: "Repo",
+    repoButtonLabel: "Repo",
   },
   {
     name: "GameStore",
     owner: "ramasham",
     repoUrl: "https://github.com/ramasham/GameStore",
+    demoUrl: "",
     description:
       "A storefront experiment built while learning .NET 10, combining backend-focused application structure with a polished product UI.",
     updatedAt: "2026-03-08T00:19:25Z",
     primaryLanguage: "C#",
     tags: ["C#", ".NET 10", "TypeScript", "SCSS"],
     visibilityLabel: "Public",
-    buttonLabel: "Repo",
+    repoButtonLabel: "Repo",
+    demoButtonLabel: "Live Demo",
   },
 ];
 
@@ -310,15 +319,29 @@ export function Projects() {
                       <span>{project.primaryLanguage}</span>
                     </div>
 
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-[#E5E7EB] transition-colors duration-300 hover:border-[#8B5CF6]/30 hover:bg-[#8B5CF6]/10"
-                    >
-                      {project.buttonLabel}
-                      <ArrowUpRight className="h-4 w-4" />
-                    </a>
+                    <div className="flex flex-wrap items-center justify-end gap-3">
+                      {project.demoUrl ? (
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-xl border border-[#EC4899]/18 bg-[linear-gradient(135deg,rgba(139,92,246,0.12),rgba(236,72,153,0.10))] px-4 py-2 text-sm font-medium text-[#F5D0FE] transition-colors duration-300 hover:border-[#EC4899]/38 hover:text-white"
+                        >
+                          {project.demoButtonLabel ?? "Demo"}
+                          <Globe className="h-4 w-4" />
+                        </a>
+                      ) : null}
+
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-[#E5E7EB] transition-colors duration-300 hover:border-[#8B5CF6]/30 hover:bg-[#8B5CF6]/10"
+                      >
+                        {project.repoButtonLabel}
+                        <ArrowUpRight className="h-4 w-4" />
+                      </a>
+                    </div>
                   </div>
                 </motion.article>
               ))}
