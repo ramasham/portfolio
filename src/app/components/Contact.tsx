@@ -2,10 +2,14 @@ import { motion } from "motion/react";
 import { Mail, Github, Linkedin, Send } from "lucide-react";
 import { useState } from "react";
 
+const DEFAULT_FORMSPREE_ENDPOINT = "https://formspree.io/f/mreyaevg";
+
 export function Contact() {
   const ownerEmail = "alshamasnehrama@gmail.com";
   const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(ownerEmail)}`;
-  const formEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT as string | undefined;
+  const formEndpoint =
+    (import.meta.env.VITE_FORMSPREE_ENDPOINT as string | undefined)?.trim() ||
+    DEFAULT_FORMSPREE_ENDPOINT;
   const githubUrl = "https://github.com/ramasham";
   const linkedInUrl = "https://linkedin.com/in/ramasham";
   const [formData, setFormData] = useState({
@@ -24,15 +28,6 @@ export function Contact() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
     setStatusMessage("");
-
-    if (!formEndpoint) {
-      setIsSubmitting(false);
-      setSubmitStatus("error");
-      setStatusMessage(
-        "The contact form is not connected yet. Add VITE_FORMSPREE_ENDPOINT to your env file or use the email button below.",
-      );
-      return;
-    }
 
     try {
       const response = await fetch(formEndpoint, {
