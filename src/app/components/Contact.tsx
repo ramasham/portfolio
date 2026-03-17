@@ -4,6 +4,42 @@ import { useState } from "react";
 
 const DEFAULT_FORMSPREE_ENDPOINT = "https://formspree.io/f/mreyaevg";
 
+type FormspreeErrorResponse = {
+  error?: string;
+  errors?: Array<{
+    message?: string;
+  }>;
+};
+
+async function getFormspreeErrorMessage(response: Response) {
+  const fallbackMessage =
+    response.status === 429
+      ? "Too many messages were sent recently. Please wait a minute and try again."
+      : `Form request failed with status ${response.status}`;
+
+  const contentType = response.headers.get("content-type") ?? "";
+  if (!contentType.includes("application/json")) {
+    return fallbackMessage;
+  }
+
+  try {
+    const data = (await response.json()) as FormspreeErrorResponse;
+    const errors = data.errors?.map((error) => error.message?.trim()).filter(Boolean);
+
+    if (errors && errors.length > 0) {
+      return errors.join(" ");
+    }
+
+    if (typeof data.error === "string" && data.error.trim()) {
+      return data.error.trim();
+    }
+  } catch {
+    return fallbackMessage;
+  }
+
+  return fallbackMessage;
+}
+
 export function Contact() {
   const ownerEmail = "alshamasnehrama@gmail.com";
   const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(ownerEmail)}`;
@@ -30,25 +66,22 @@ export function Contact() {
     setStatusMessage("");
 
     try {
+      const submission = new FormData();
+      submission.append("name", formData.name);
+      submission.append("email", formData.email);
+      submission.append("subject", formData.subject);
+      submission.append("message", formData.message);
+
       const response = await fetch(formEndpoint, {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        }),
+        body: submission,
       });
 
       if (!response.ok) {
-        if (response.status === 429) {
-          throw new Error("Too many messages were sent recently. Please wait a minute and try again.");
-        }
-        throw new Error(`Form request failed with status ${response.status}`);
+        throw new Error(await getFormspreeErrorMessage(response));
       }
 
       setSubmitStatus("success");
